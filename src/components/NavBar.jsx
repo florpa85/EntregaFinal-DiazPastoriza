@@ -3,14 +3,17 @@ import{Menu, MenuButton, MenuList, Button, MenuItem, Flex, Box, Spacer, Heading,
 import { ChevronDownIcon } from '@chakra-ui/icons'
 import CartWidget from './CartWidget'
 import logo from "../assets/logo.png"
+import {Link} from "react-router-dom"
 
 
 function NavBar() {
   return (
-    <Flex bg='gray.300'>
+    <Flex bg='RGBA(0, 0, 0, 0.16)'>
         
           <Box p='5'>
+            <Link to={"/"}>
             <img src={logo} alt="logo" />
+            </Link>
           </Box>
 
           <Spacer />
@@ -22,9 +25,21 @@ function NavBar() {
                       MENU
                   </MenuButton>
                   <MenuList>
-                      <MenuItem>Shop</MenuItem>
-                      <MenuItem>Nosotros</MenuItem>
-                      <MenuItem>Experiencias Urania</MenuItem>
+                  <MenuItem>
+                   <Link to={`/category/${"cat1"}`}>
+                      Platos
+                    </Link>
+                  </MenuItem>
+                      <MenuItem>
+                      <Link to={`/category/${"cat2"}`}>
+                      Tazas
+                    </Link>
+                      </MenuItem>
+                      <MenuItem>
+                      <Link to={`/category/${"cat3"}`}>
+                      Experiencias Urania
+                    </Link>
+                      </MenuItem>
                   </MenuList>
               </Menu>
             </Box>
@@ -32,7 +47,9 @@ function NavBar() {
             <Spacer />
 
             <Box>
-              <CartWidget/>
+              <Link to={"/cart"}>
+                <CartWidget/>
+              </Link>
             </Box>
           </HStack>
             
