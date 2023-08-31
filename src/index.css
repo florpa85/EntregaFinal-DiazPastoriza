@@ -1,16 +1,76 @@
-.div_novedades {
+  .div_novedades {
     position: absolute;
     margin-top: 300px;
-    margin-left: 600px; }
-    .div_novedades .piezas_h1 {
+    margin-left: 600px; 
+  }
+  .div_novedades .piezas_h1 {
       color: #0f0f81;
-      font-size: 40px; }
-    .div_novedades .piezas_h2 {
+      font-size: 40px; 
+    }
+  .div_novedades .piezas_h2 {
       color: #0f0f81;
       font-size: 27px;
-      margin-top: -5px; }
+      margin-top: -5px; 
+    }
   
   .back {
     overflow: hidden;
     margin-top: 15px;
     border-bottom: 2px rgba(146, 141, 141, 0.493) solid; }
+
+  .titulo{
+    margin: 50px;
+    margin-top: 15px;
+    font-size: 40px;
+    color: black;
+
+   } 
+ 
+  .cards{
+    display: inline-flex
+ 
+   
+   }
+  .cartImg{
+    height: 300px;
+  }
+  .cartContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .cartContent2{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+  }
+  .cartName{
+   font-weight: bold;  
+  }
+  .itemsCol{
+    display: flex;
+    flex-wrap: wrap;
+    height: 50%;
+  }
+  .itemDet{
+    display: flex;
+    justify-content: center;
+  }
+  .gracias{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 100px;
+  }
+  .buttonX{
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .formName{
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }

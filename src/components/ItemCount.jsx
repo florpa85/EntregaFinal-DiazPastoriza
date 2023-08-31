@@ -1,29 +1,42 @@
-import {useEffect,useState} from 'react'
-import{Menu, MenuButton, MenuList, Button, MenuItem, Flex, Box, Spacer, Heading, HStack, Container} from "@chakra-ui/react"
+import {useContext} from 'react'
+import{ Button, Flex, Box, Spacer, HStack} from "@chakra-ui/react"
+import { CartContext } from '../context/ShoppingCartContext'
+import React from 'react'
 
-function ItemCount() {
-    const [contador, setContador]= useState(0)
-    const sumar =()=>{ setContador(contador +1)}
-    const restar =()=>{
-        if (contador>0)
-        setContador(contador -1)}
-    const reset =()=>{ setContador(0)}   
+const ItemCount=({p, qty}) => {
+
+  const {cart, setCart}= useContext(CartContext)
+
+  const sumar =()=>{
+    const productDuplicado =cart.find((item)=> item.id === p.id)
+    
+      setCart(cart.map((item)=> (item.id === p.id ? {...p, qty : productDuplicado.qty+ 1}: item)))
+    
+  }
+  const restar =()=>{
+    const productDuplicado =cart.find((item)=> item.id === p.id)
+    productDuplicado.qty !==1 &&
+      setCart(cart.map((item)=> (item.id === p.id ? {...p, qty : productDuplicado.qty- 1}: item)))
+  }
+
+    
+
+   
+  
+   
+  
   return (
     <Flex>
-         <Container centerContent > 
-         <HStack maxW='400px'>
-            <Button onClick={sumar}>+</Button>
-            <Spacer/>
-            <Box>{contador}</Box>
-            <Spacer/>
-            <Button onClick={restar}>-</Button>
-        </HStack>
-        
-        
-        </Container> 
+          <HStack maxW='400px'>
+                                <Button onClick={restar}>-</Button>
+                                <Spacer/>
+                                <Box>{p.qty}</Box>
+                                <Spacer/>
+                                <Button onClick={sumar}>+</Button>
+                            </HStack>
      
     </Flex>
   )
 }
 
-export default ItemCount
+export default React.memo(ItemCount);

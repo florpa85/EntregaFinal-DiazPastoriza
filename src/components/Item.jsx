@@ -2,46 +2,39 @@ import React from 'react'
 import{Card, Image, Stack, Button, CardBody, CardFooter, Text, Flex, Box, ButtonGroup, Heading, Divider, Wrap} from "@chakra-ui/react"
 import { Link } from 'react-router-dom'
 
-const Item =({
-  nombre,
-  imagen,
-  id,
-  category
-}) =>{
-
+const Item =({producto}) =>{
 
 
   return (
     <>
-    <Flex spacing='30px' align='center' templatecolumns='repeat(5, 1fr)' >
+    <div className='cards'>
+    
         <Card w='400px'  align='center'>
           <CardBody>
             <Box>
-              {imagen}
+              <Image src={producto.img}></Image>
             </Box>
             <Stack mt='6' spacing='3'align='center'>
               <Heading size='md'>
-                {nombre}
+                {producto.name}
               </Heading>
-              <Text>
-                {category}
-              </Text>
             </Stack>
           </CardBody>
 
           <Divider />
 
           <CardFooter >
-            <Link to={`/item/${id}`}>
+            <Link to={`/item/${producto.id}`}>
               <ButtonGroup spacing='2'>
                 <Button variant='solid' colorschemeb='blackAlpha'>
-                  Detail
+                  Ver mas
                 </Button>
               </ButtonGroup>
             </Link>
           </CardFooter>
         </Card>
-    </Flex>
+   
+    </div>
     </>
   )
 }
